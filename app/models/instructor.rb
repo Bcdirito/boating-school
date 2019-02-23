@@ -10,12 +10,18 @@ class Instructor
 
   def fail_student(student_name, test_name)
     test = BoatingTest.all.find {|t| t.student.full_name == student_name && t.test_name == test_name}
-    test.status = "failed"
+
+    if test != nil
+      test.status = "failed"
+    end
   end
 
   def pass_student(student_name, test_name)
     test = BoatingTest.all.find {|t| t.student.full_name == student_name && t.test_name == test_name}
-    test.status = "passed"
+
+    if test != nil
+      test.status = "passed"
+    end
   end
 
   def boating_tests
